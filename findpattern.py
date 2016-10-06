@@ -16,17 +16,17 @@ class FindPatternLocation:
     def __init__(self, pattern, file):
         self.oricpattern = pattern
         self.filetoread = file
-        self.find_pattern_occurence()
+        self.find_nucleotide_pattern_occurence()
         
-    def find_pattern_occurence(self):
+    def find_nucleotide_pattern_occurence(self):
         count = 0
-        print (os.stat(self.filetoread))        
+        string_count = 0
         self.filetoread = open(self.filetoread,"r")
         for line in self.filetoread:
             for word in line:
-            for i in range(0,line_count):
+                string_count +=1
+            for i in range(string_count):
                 pattern_to_check = line[i:i+len(self.oricpattern)]
-                print pattern_to_check
                 if pattern_to_check == self.oricpattern:
                     count += 1
         print ("Nucleotide Count: %d") % count
