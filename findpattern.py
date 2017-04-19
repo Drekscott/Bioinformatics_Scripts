@@ -58,7 +58,7 @@ class App(object):
         o = FindPatternLocation(pattern,filename)
         self.label = Tk.Label(self.root, text=o,font="bold",bd=3,bg="#00aced")
         self.label.pack()
-        self.label = Tk.Label(self.root, text=time.time()-start_time,font="bold",bd=3,bg="#00aced")
+        self.label = Tk.Label(self.root, text="Time Executed %f" % float(time.time()-start_time),font="bold",bd=3,bg="#00aced")
         self.label.pack()
 
 
