@@ -56,9 +56,13 @@ class App(object):
         pattern = self.ui.get()
         start_time = time.time()
         o = FindPatternLocation(pattern,filename)
+        f = open(time.strftime("%c")+".txt","w")
+        f.write("Searched for: %s\n" % pattern)
+        f.write("Results: %s" % str(o))
+        f.close()
         self.label = Tk.Label(self.root, text=o,font="bold",bd=3,bg="#00aced")
         self.label.pack()
-        self.label = Tk.Label(self.root, text="Time Executed %f" % float(time.time()-start_time),font="bold",bd=3,bg="#00aced")
+        self.label = Tk.Label(self.root, text="Search Time %f" % float(time.time()-start_time),font="bold",bd=3,bg="#00aced")
         self.label.pack()
 
 
