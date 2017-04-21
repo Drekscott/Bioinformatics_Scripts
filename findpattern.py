@@ -22,6 +22,8 @@ def main():
 class App(object):
 
     def __init__(self):
+        if not os.path.exists("reports"):
+            os.makedirs("reports")
         self.root = Tk.Tk()
         self.root.wm_title("Genome Search")
         self.root.geometry("900x900")
@@ -56,7 +58,7 @@ class App(object):
         pattern = self.ui.get()
         start_time = time.time()
         o = FindPatternLocation(pattern,filename)
-        f = open(time.strftime("%c")+".txt","w")
+        f = open("reports/"+time.strftime("%c")+".txt","w")
         f.write("Searched for: %s\n" % pattern)
         f.write("Results: %s" % str(o))
         f.close()
